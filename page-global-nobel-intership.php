@@ -3730,29 +3730,23 @@ counter()
 		
 		// Slowly scroll start
 		var $page = $('html, body');
-		$('a[href*="#start"]').click(function() {
-			$page.animate({
-				scrollTop: $($.attr(this, 'href')).offset().top - 60
-			}, 800);
-			return false;
-		});
+		let scrollElements = [
+			{ selector: 'a[href*="#start"]', offsetCoeficient: 60 },
+			{ selector: 'a.scroll', offsetCoeficient: 60 },
+			{ selector: 'a[href*="#intership"]', offsetCoeficient: 150 }
+		]
 
-		$('a.scroll').click(function() {
-			$page.animate({
-				scrollTop: $($.attr(this, 'href')).offset().top - 60
-			}, 800);
-			return false;
-		});
-
-		$('a[href*="#intership"]').click(function() {
-			$page.animate({
-				scrollTop: $($.attr(this, 'href')).offset().top - 150
-			}, 800);
-			return false;
-		});
+		scrollElements.forEach(scrollElement => {
+			$(scrollElement.selector).click(function() {
+				$page.animate({
+					scrollTop: $($.attr(this, 'href')).offset().top - scrollElement.offsetCoeficient
+				})
+			})
+		})
 		// Slowly scroll end
 
 		// Question logic start
+		
 		$('.ques__subtitle').on('click', function(e){
 			e.preventDefault();
 			$(this).toggleClass('active')
