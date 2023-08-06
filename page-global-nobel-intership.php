@@ -3205,45 +3205,25 @@ Template Name: Page "Global Nobel Intership"
 <script>
 	// !=== Form logic start ===!
 
-	// Autoclose date when time is out start
+	let datesToRemove = [
+        { date: '05/20/2023', options: 'may-26' },
+        { date: '06/16/2023', options: 'june-17' },
+        { date: '06/17/2023', options: 'june-23' },
+        { date: '07/12/2023', options: 'july-15' },
+        { date: '07/18/2023', options: 'july-21' },
+        { date: '08/08/2023', options: 'august-11' },
+        { date: '08/16/2023', options: 'august-19' },
+        { date: '08/29/2023', options: 'september-1' },
+        { date: '09/13/2023', options: 'september-16' },
+    ]
 
-	// May 26 
-		if (new Date() > new Date('05/20/2023 0:00:00')){
-		$('option[value="may-26"]').remove()
-	}
-	// June 17
-		if (new Date() > new Date('06/16/2023 0:00:00')){
-		$('option[value="june-17"]').remove()
-	}
-	// June 23  
-		if (new Date() > new Date('06/17/2023 0:00:00')){
-		$('option[value="june-23"]').remove()
-	}
-	// July 15
-		if (new Date() > new Date('07/12/2023 0:00:00')){
-		$('option[value="july-15"]').remove()
-	}
-	// July 21
-		if (new Date() > new Date('07/18/2023 0:00:00')){
-		$('option[value="july-21"]').remove()
-	}
-	// August 11
-	if (new Date() > new Date('08/08/2023 0:00:00')){
-		$('option[value="august-11"]').remove()
-	}
-	// August 19
-	if (new Date() > new Date('08/16/2023 0:00:00')){
-		$('option[value="august-19"]').remove()
-	}
-	// September 1
-	if (new Date() > new Date('08/29/2023 0:00:00')){
-		$('option[value="september-1"]').remove()
-	}
-	// September 16
-	if (new Date() > new Date('09/13/2023 0:00:00')){
-		$('option[value="september-16"]').remove()
-	}
-	// Autoclose date when time is out end
+    const currentDate = new Date()
+
+    datesToRemove.forEach(dateToRemove => {
+        if(currentDate > new Date(dateToRemove.date + ' 0:00:00')) {
+            $(option[value="${dateToRemove.options}"]).remove()
+        }
+    })
 
 	// 👇️ Example date and time in UTC
 	let utcDate = new Date().setUTCHours(14, 0);
