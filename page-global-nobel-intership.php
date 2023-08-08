@@ -2642,86 +2642,77 @@ Template Name: Page "Global Nobel Intership"
 <script src="<?php echo get_template_directory_uri(); ?>/assets/js/slick.min.js"></script>
 <script>
 	// Custom notify for select
-	function validateSelect(){
-		if (document.getElementById("select-country").value != '---'){
-			$("#select-err-notify").css('display', 'none')
-		} else {
-			$("#select-err-notify").css('display', 'block')
-		}
+
+	function validateDisplayStyling(selector, displayValue, isReturn, returnValue) {
+		$(selector).css('display', displayValue)
+		if(isReturn) return returnValue
 	}
+
+	function validateSelect(){
+		const selectCountryElement = $('#select-country')
+		if (selectCountryElement.val() != '---') validateDisplayStyling("#select-err-notify", 'none', false, false)
+		else validateDisplayStyling("#select-err-notify", 'block', false, false)
+	}
+
 	$('#select-country').on('change', function(){
 		validateSelect();
 	})
 
 	// 2 step
 	function validateWhatIsYour(){
-		if ($('.validate-What-Is-Your').val() != ''){
-			$("#select-err-notify-1").css('display', 'none')
-			return true
-		} else {
-			$("#select-err-notify-1").css('display', 'block')
-			return false
-		}
+		const validateWhatIsYourElement = $('.validate-What-Is-Your')
+		if (validateWhatIsYourElement.val() != '') validateDisplayStyling("#select-err-notify-1", 'none', true, true)
+		else validateDisplayStyling("#select-err-notify-1", 'block', true, false)
 	}
+
 	$('.validate-What-Is-Your').on('input', function(){
 		validateWhatIsYour();
 	})
+
 	function validateTellUsAbout(){
-		if ($('.validate-Tell-Us-About').val() != ''){
-			$("#select-err-notify-2").css('display', 'none')
-			return true
-		} else {
-			$("#select-err-notify-2").css('display', 'block')
-			return false
-		}
+		const validateTellUsAboutElement = $('.validate-Tell-Us-About')
+		if (validateTellUsAboutElement.val() != '') validateDisplayStyling("#select-err-notify-2", 'none', true, true)
+		else validateDisplayStyling("#select-err-notify-2", 'block', true, false)
 	}
+
 	$('.validate-Tell-Us-About').on('input', function(){
 		validateTellUsAbout();
 	})
+
 	function validateHowDidHear(){
-		if (document.getElementById("how-did-hear").value != '---'){
-			$("#select-err-notify-3").css('display', 'none')
-			return true
-		} else {
-			$("#select-err-notify-3").css('display', 'block')
-			return false
-		}
+		const howDidYouHearElement = $('#how-did-hear')
+		if (howDidYouHearElement.val() != '---') validateDisplayStyling("#select-err-notify-3", 'none', true, true)
+		else validateDisplayStyling("#select-err-notify-3", 'block', true, false)
 	}
+
 	$('#how-did-hear').on('change', function(){
 		validateHowDidHear();
 	})
+
 	function validateCheckboxReq1(){
-		if ($('.--checkbox-req-1').prop("checked") == true){
-			$("#checkbox-err-1").css('display', 'none')
-			return true
-		} else {
-			$("#checkbox-err-1").css('display', 'block')
-			return false
-		}
+		const propChecked = $('.--checkbox-req-1').prop("checked")
+		if (propChecked) validateDisplayStyling("#checkbox-err-1", 'none', true, true)
+		else validateDisplayStyling("#checkbox-err-1", 'block', true, false)
 	}
+
 	$('.--checkbox-req-1').on('change', function(){
 		validateCheckboxReq1();
 	})
+
 	function validateCheckboxReq2(){
-		if ($('.--checkbox-req-2').prop("checked") == true){
-			$("#checkbox-err-2").css('display', 'none')
-			return true
-		} else {
-			$("#checkbox-err-2").css('display', 'block')
-			return false
-		}
+		const propChecked = $('.--checkbox-req-2').prop("checked")
+		if (propChecked) validateDisplayStyling("#checkbox-err-2", 'none', true, true)
+		else validateDisplayStyling("#checkbox-err-2", 'block', true, false)
 	}
+
 	$('.--checkbox-req-2').on('change', function(){
 		validateCheckboxReq2();
 	})
+
 	function recaptha(){
-		if (grecaptcha.getResponse() != ''){
-			$("#checkbox-err-recaptha").css('display', 'none')
-			return true
-		} else {
-			$("#checkbox-err-recaptha").css('display', 'block')
-			return false
-		}
+		const grecaptchaResponse = grecaptcha.getResponse()
+		if (grecaptchaResponse != '') validateDisplayStyling("#checkbox-err-recaptha", 'none', true, true)
+		else validateDisplayStyling("#checkbox-err-recaptha", 'block', true, false)
 	}
 
 	// Validate 1 step start
@@ -2746,12 +2737,7 @@ Template Name: Page "Global Nobel Intership"
 		function IsEmail(email) {
 			var regex =
 				/^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-			if (!regex.test(email)) {
-				return false;
-			}
-			else {
-				return true;
-			}
+			return regex.test(email)
 		}
 
 		if(IsEmail(email) == true && firstname.length >= 1 && lastname.length >= 1 && phone.length >= 1 && age.length >= 1 && document.getElementById("select-country").value != "---"){
