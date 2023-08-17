@@ -3,4 +3,9 @@
   padding: 0;
   box-sizing: border-box;
   font-family: monospace, monospace;
+}
+
+.container {
+  width: 100%;
+  height: auto;
 }/*# sourceMappingURL=page-global-nobel-intership.css.map */
