@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: monospace, monospace;
+  font-family: "Raleway";
 }
 
 .container {
@@ -11,5 +11,129 @@
 }
 .container .faq-container {
   width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.container .interns-slider-container {
   height: 100vh;
+}
+.container .faq-title-container {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
+}
+.container .faq-title {
+  font-size: 36px;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.container .faq-title::before {
+  position: absolute;
+  content: "";
+  left: -40px;
+  bottom: 0;
+  width: 172px;
+  height: 30px;
+  top: 30px;
+  background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+  z-index: -1;
+}
+.container .faq-title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 15px;
+  top: 25px;
+  background-color: #ffd400;
+  z-index: -1;
+}
+.container .faq-questions-container {
+  height: 640px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .faq-item {
+  height: auto;
+  width: 850px;
+  border: 1px solid #b8b8b8;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 10px 25px;
+}
+.container .faq-item a {
+  color: rgb(23, 124, 217);
+}
+.container .faq-item:not(:last-child) {
+  margin-bottom: 25px;
+}
+.container .faq-answer {
+  line-height: 1.5;
+}
+.container .faq-subtitle-container {
+  height: 44px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .faq-subtitle {
+  font-size: 24px;
+}
+.container .faq-subtitle-container > svg {
+  cursor: pointer;
+}
+.container .faq-subtitle-container > svg > path, .container .faq-subtitle {
+  transition: 0.3s ease-in-out;
+}
+.container .faq-item:hover .faq-subtitle-container > svg > path, .container .faq-item.active .faq-subtitle-container > svg > path {
+  stroke: rgb(23, 124, 217);
+}
+.container .faq-item:hover .faq-subtitle, .container .faq-item.active .faq-subtitle {
+  color: rgb(23, 124, 217);
+}
+.container .faq-item.active .plus {
+  opacity: 0;
+}
+.container .faq-answer {
+  transition: 0.3s ease-in-out;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 18px;
+  padding-right: 60px;
+}
+.container .faq-item.active .faq-answer {
+  max-height: 300px;
+  padding-bottom: 25px;
+  padding-top: 15px;
+}
+.container .faq-answer-list-item {
+  margin-left: 25px;
+}
+.container .numeric-list {
+  list-style-type: armenian;
+}
+.container .faq-answer-list-item:not(:last-child) {
+  margin-bottom: 5px;
+}
+.container .faq-answer-list {
+  max-width: 700px;
+}
+.container .reasons_to_join {
+  margin-top: 10px;
 }/*# sourceMappingURL=page-global-nobel-intership.css.map */
