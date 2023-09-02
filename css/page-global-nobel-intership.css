@@ -9,18 +9,19 @@
   width: 100%;
   height: auto;
 }
-.container .faq-container {
+.container .faq__container,
+.container .interns__slider__container {
   width: 100%;
-  height: auto;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
-.container .interns-slider-container {
-  height: 100vh;
+.container .faq__container {
+  padding-top: 90px;
 }
-.container .faq-title-container {
+.container .title__container {
   width: -moz-fit-content;
   width: fit-content;
   height: 50px;
@@ -29,13 +30,14 @@
   align-items: center;
   margin-bottom: 75px;
 }
-.container .faq-title {
+.container .title__container > .container__title {
+  font-family: "Manrope";
   font-size: 36px;
   width: -moz-fit-content;
   width: fit-content;
   position: relative;
 }
-.container .faq-title::before {
+.container .title__container > .container__title::before {
   position: absolute;
   content: "";
   left: -40px;
@@ -46,7 +48,7 @@
   background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
   z-index: -1;
 }
-.container .faq-title::after {
+.container .title__container > .container__title::after {
   position: absolute;
   content: "";
   left: 0;
@@ -54,19 +56,21 @@
   bottom: 0;
   width: 100%;
   height: 15px;
-  top: 25px;
+  top: 30px;
   background-color: #ffd400;
   z-index: -1;
 }
-.container .faq-questions-container {
-  height: 640px;
+.container .faq__questions__container {
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.container .faq-item {
-  height: auto;
+.container .faq__questions__container .faq__item {
+  height: -moz-fit-content;
+  height: fit-content;
   width: 850px;
   border: 1px solid #b8b8b8;
   border-radius: 8px;
@@ -75,41 +79,39 @@
   flex-direction: column;
   padding: 10px 25px 10px 25px;
 }
-.container .faq-item a {
+.container .faq__questions__container .faq__item a {
   color: rgb(23, 124, 217);
 }
-.container .faq-item:not(:last-child) {
+.container .faq__questions__container .faq__item:not(:last-child) {
   margin-bottom: 25px;
 }
-.container .faq-answer {
+.container .faq__questions__container .faq__item .faq__answer {
   line-height: 1.5;
 }
-.container .faq-subtitle-container {
+.container .faq__questions__container .faq__item .faq__subtitle__container {
   height: 44px;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.container .faq-subtitle {
+.container .faq__questions__container .faq__item .faq__subtitle__container .faq__subtitle {
   font-size: 24px;
 }
-.container .faq-subtitle-container > svg {
-  cursor: pointer;
-}
-.container .faq-subtitle-container > svg > path, .container .faq-subtitle {
+.container .faq__questions__container .faq__item .faq__subtitle__container svg > path,
+.container .faq__questions__container .faq__item .faq__subtitle__container .faq__subtitle {
   transition: 0.3s ease-in-out;
 }
-.container .faq-item:hover .faq-subtitle-container > svg > path, .container .faq-item.active .faq-subtitle-container > svg > path {
+.container .faq__questions__container .faq__item:hover .faq__subtitle__container > svg > path, .container .faq__questions__container .faq__item.active .faq__subtitle__container > svg > path {
   stroke: rgb(23, 124, 217);
 }
-.container .faq-item:hover .faq-subtitle, .container .faq-item.active .faq-subtitle {
+.container .faq__questions__container .faq__item:hover .faq__subtitle, .container .faq__questions__container .faq__item.active .faq__subtitle {
   color: rgb(23, 124, 217);
 }
-.container .faq-item.active .plus {
+.container .faq__questions__container .faq__item.active .plus {
   opacity: 0;
 }
-.container .faq-answer {
+.container .faq__questions__container .faq__item .faq__answer {
   transition: 0.3s ease-in-out;
   max-height: 0;
   padding: 0;
@@ -117,23 +119,326 @@
   font-size: 18px;
   padding-right: 60px;
 }
-.container .faq-item.active .faq-answer {
-  max-height: 300px;
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list {
+  max-width: 700px;
+}
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list .faq__answer__list__item {
+  margin-left: 25px;
+}
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list .faq__answer__list__item:not(:last-child) {
+  margin-bottom: 5px;
+}
+.container .faq__questions__container .faq__item .faq__answer .reasons__to__join {
+  margin-top: 10px;
+  list-style-type: numeric;
+  margin-left: 25px;
+}
+.container .faq__questions__container .faq__item .faq__answer .reasons__to__join > li {
+  margin-bottom: 7px;
+}
+.container .faq__questions__container .faq__item.active .faq__answer {
+  max-height: 1000px;
   padding-bottom: 25px;
   padding-top: 15px;
 }
-.container .faq-answer-list-item {
-  margin-left: 25px;
+.container .interns__slider__container {
+  padding-top: 110px;
+  display: flex;
+  flex-direction: column;
 }
-.container .numeric-list {
-  list-style-type: armenian;
+.container .interns__slider__container .splide {
+  display: flex;
+  align-items: center;
 }
-.container .faq-answer-list-item:not(:last-child) {
+.container .interns__slider__container .splide .splide__arrow {
+  width: 30px !important;
+  height: 120px !important;
+  background: none !important;
+  opacity: 1 !important;
+}
+.container .interns__slider__container .splide .splide__arrow path {
+  transition: 0.2s ease all;
+}
+.container .interns__slider__container .splide .splide__arrow:hover path {
+  fill: #FFD400 !important;
+}
+.container .interns__slider__container .splide .splide__arrow--prev {
+  margin-left: -90px;
+}
+.container .interns__slider__container .splide .splide__arrow--next {
+  margin-right: -90px;
+}
+.container .interns__slider__container .splide .splide__track {
+  width: 1100px;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 120px;
+  padding-bottom: 20px;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card {
+  width: 100%;
+  height: auto;
+  background: white;
+  width: 472px;
+  border: 2px solid rgba(196, 196, 196, 0.25);
+  box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  transition: 0.2s ease all;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card:hover {
+  box-shadow: none;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__avatar {
+  width: 200px;
+  border-radius: 100px;
+  margin-top: -100px;
+  margin-bottom: 15px;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__name {
+  font-size: 24px;
   margin-bottom: 5px;
+  line-height: 1.35;
+  font-family: "Manrope";
+  font-weight: 700;
 }
-.container .faq-answer-list {
-  max-width: 700px;
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__role {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+  margin-bottom: 25px;
 }
-.container .reasons_to_join {
-  margin-top: 10px;
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper {
+  padding: 0 25px 0 25px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper b {
+  color: black;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .shown__feedback,
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .read__more__feedback {
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.5);
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .read__more__feedback {
+  display: none;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .read__more,
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .show__less {
+  color: rgb(23, 124, 217);
+  font-size: 18px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper .show__less {
+  display: none;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper.active > .read__more {
+  display: none;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper.active > .show__less {
+  display: inline;
+}
+.container .interns__slider__container .splide .splide__track .splide__slide .intern__card .intern__feedback__wrapper.active > .read__more__feedback {
+  display: inline;
+}
+@media screen and (max-width: 1024px) {
+  .container .interns__slider__container {
+    width: 100%;
+  }
+  .container .interns__slider__container .splide .splide__track {
+    width: 85vw;
+  }
+  .container .interns__slider__container .splide .splide__track .splide__list .splide__slide .intern__card {
+    width: 90%;
+    box-shadow: none !important;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .container .faq__container {
+    width: 100%;
+    padding: 0 40px 0 40px;
+  }
+  .container .faq__container .faq__item {
+    width: 100%;
+  }
+  .container .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .container .interns__slider__container .container__title {
+    font-size: 18px;
+  }
+  .container .interns__slider__container .container__title::before {
+    position: absolute;
+    content: "";
+    left: -15px;
+    bottom: 0;
+    width: 172px;
+    height: 20px;
+    top: 15px;
+    background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+    z-index: -1;
+  }
+  .container .interns__slider__container .container__title::after {
+    position: absolute;
+    content: "";
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 13px;
+    top: 15px;
+    background-color: #ffd400;
+    z-index: -1;
+  }
+  .container .faq__container {
+    width: 100%;
+    padding: 0 25px 0 25px;
+  }
+  .container .faq__container .container__title {
+    font-size: 18px;
+  }
+  .container .faq__container .container__title::before {
+    position: absolute;
+    content: "";
+    left: -15px;
+    bottom: 0;
+    width: 172px;
+    height: 20px;
+    top: 15px;
+    background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+    z-index: -1;
+  }
+  .container .faq__container .container__title::after {
+    position: absolute;
+    content: "";
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 13px;
+    top: 15px;
+    background-color: #ffd400;
+    z-index: -1;
+  }
+  .container .faq__container .faq__item {
+    width: 100%;
+  }
+  .container .faq__container .faq__questions__container .faq__subtitle__container svg {
+    width: 28px;
+    height: 28px;
+  }
+  .container .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 16px;
+    max-width: 80%;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 850px) {
+  .container .interns__slider__container .splide .splide__arrow--prev {
+    margin-left: -70px;
+  }
+  .container .interns__slider__container .splide .splide__arrow--next {
+    margin-right: -70px;
+  }
+  .container .interns__slider__container .splide .splide__track .splide__list .splide__slide {
+    width: 50% !important;
+  }
+}
+@media screen and (max-width: 850px) {
+  .container .splide__slide {
+    width: 100% !important;
+  }
+}
+@media screen and (max-width: 850px) and (min-width: 600px) {
+  .container .splide__arrow--prev {
+    margin-left: -45px !important;
+  }
+  .container .splide__arrow--next {
+    margin-right: -45px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container .interns__slider__container .title__container {
+    margin-bottom: 0px !important;
+  }
+  .container .intern__card .intern__name, .container .intern__card .intern__role {
+    font-size: 14px !important;
+  }
+  .container .intern__card .intern__role {
+    margin-bottom: 15px !important;
+  }
+  .container .intern__card .intern__avatar {
+    width: 140px !important;
+    margin-top: -70px !important;
+  }
+  .container .intern__card .intern__feedback__wrapper {
+    padding: 0 15px 0 15px !important;
+  }
+  .container .splide__arrow--prev {
+    margin-left: -45px !important;
+    transform: scale(0.6);
+  }
+  .container .splide__arrow--next {
+    margin-right: -45px !important;
+    transform: scale(0.6);
+  }
+}
+@media screen and (min-width: 370px) and (max-width: 600px) {
+  .container .shown__feedback, .container .read__more__feedback, .container .read__more, .container .show__less {
+    font-size: 14px !important;
+  }
+}
+@media screen and (max-width: 370px) {
+  .container .faq__container {
+    width: 100% !important;
+    padding: 0 20px 0 20px !important;
+  }
+  .container .faq__container .title__container {
+    margin-bottom: 60px !important;
+  }
+  .container .faq__container .title__container .container__title {
+    font-size: 18px !important;
+    line-height: 1.7;
+  }
+  .container .faq__container .title__container .container__title::before {
+    left: -15px !important;
+    width: 172px !important;
+    height: 20px !important;
+    top: 15px !important;
+  }
+  .container .faq__container .title__container .container__title::after {
+    left: 5px !important;
+    width: 100% !important;
+    height: 13px !important;
+    top: 15px !important;
+  }
+  .container .faq__container .faq__item {
+    width: 100% !important;
+    padding: 15px 20px 15px 20px !important;
+  }
+  .container .faq__container .faq__questions__container .faq__subtitle__container svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .container .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 14px !important;
+    max-width: 75% !important;
+  }
+  .container .intern__card .shown__feedback, .container .intern__card .read__more__feedback, .container .intern__card .read__more, .container .intern__card .show__less {
+    font-size: 12px !important;
+  }
+  .container .splide__arrow--prev {
+    margin-left: -40px !important;
+  }
+  .container .splide__arrow--next {
+    margin-right: -40px !important;
+  }
 }/*# sourceMappingURL=page-global-nobel-intership.css.map */

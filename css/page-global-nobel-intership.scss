@@ -4,153 +4,598 @@
     box-sizing: border-box;
     font-family: "Raleway";
 }
+
 .container {
     width: 100%;
     height: auto;
 
-    .faq-container {
+    .faq__container,
+    .interns__slider__container {
         width: 100%;
-        height: auto;
+        height: fit-content;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-    }
-    .interns-slider-container {
-        height: 100vh;
     }
 
-    .faq-title-container {
+    .faq__container {
+        padding-top: 90px;
+
+    }
+
+    .title__container {
         width: fit-content;
         height: 50px;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-bottom: 75px;
+
+        &>.container__title {
+            font-family: "Manrope";
+            font-size: 36px;
+            width: fit-content;
+            position: relative;
+        }
+
+        &>.container__title::before {
+            position: absolute;
+            content: "";
+            left: -40px;
+            bottom: 0;
+            width: 172px;
+            height: 30px;
+            top: 30px;
+            background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+            z-index: -1;
+        }
+
+        &>.container__title::after {
+            position: absolute;
+            content: "";
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 15px;
+            top: 30px;
+            background-color: #ffd400;
+            z-index: -1;
+        }
     }
 
-    .faq-title {
-        font-size: 36px;
-        width: fit-content;
-        position: relative;
-    }
-
-    .faq-title::before {
-        position: absolute;
-        content: "";
-        left: -40px;
-        bottom: 0;
-        width: 172px;
-        height: 30px;
-        top: 30px;
-        background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
-        z-index: -1;
-    }
-
-    .faq-title::after {
-        position: absolute;
-        content: "";
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 15px;
-        top: 25px;
-        background-color: #ffd400;
-        z-index: -1;
-    }
-
-    .faq-questions-container {
-        height: 640px;
+    .faq__questions__container {
+        height: fit-content;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        .faq__item {
+            height: fit-content;
+            width: 850px;
+            border: 1px solid #b8b8b8;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 25px 10px 25px;
+
+            & a {
+                color: rgb(23, 124, 217);
+            }
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
+
+            .faq__answer {
+                line-height: 1.5;
+
+            }
+
+            .faq__subtitle__container {
+                height: 44px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .faq__subtitle {
+                    font-size: 24px;
+                }
+
+                svg>path,
+                .faq__subtitle {
+                    -webkit-transition: .3s ease-in-out;
+                    -o-transition: .3s ease-in-out;
+                    transition: .3s ease-in-out
+                }
+            }
+
+            &:hover .faq__subtitle__container>svg>path,
+            &.active .faq__subtitle__container>svg>path {
+                stroke: rgb(23, 124, 217);
+            }
+
+            &:hover .faq__subtitle,
+            &.active .faq__subtitle {
+                color: rgb(23, 124, 217);
+            }
+
+            &.active .plus {
+                opacity: 0;
+            }
+
+            .faq__answer {
+                transition: .3s ease-in-out;
+                max-height: 0;
+                padding: 0;
+                overflow: hidden;
+                font-size: 18px;
+                padding-right: 60px;
+
+                .faq__answer__list {
+                    max-width: 700px;
+
+                    .faq__answer__list__item {
+                        margin-left: 25px;
+
+                        &:not(:last-child) {
+                            margin-bottom: 5px;
+
+                        }
+                    }
+                }
+
+                .reasons__to__join {
+                    margin-top: 10px;
+                    list-style-type: numeric;
+                    margin-left: 25px;
+
+                    &>li {
+                        margin-bottom: 7px;
+                    }
+                }
+
+            }
+
+            &.active .faq__answer {
+                max-height: 1000px;
+                padding-bottom: 25px;
+                padding-top: 15px;
+            }
+        }
     }
 
-    .faq-item {
-        height: auto;
-        width: 850px;
-        border: 1px solid #b8b8b8;
-        border-radius: 8px;
-        cursor: pointer;
+    //inters slider
+    .interns__slider__container {
+        padding-top: 110px;
         display: flex;
         flex-direction: column;
-        padding: 10px 25px 10px 25px;
+
+        .splide {
+            display: flex;
+            align-items: center;
+
+            .splide__arrow {
+                width: 30px !important;
+                height: 120px !important;
+                background: none !important;
+                opacity: 1 !important;
+            }
+
+            .splide__arrow path {
+                transition: .2s ease all;
+            }
+
+            .splide__arrow:hover path {
+                fill: #FFD400 !important;
+            }
+
+            .splide__arrow--prev {
+                margin-left: -90px;
+            }
+
+            .splide__arrow--next {
+                margin-right: -90px;
+            }
+
+            .splide__track {
+                width: 1100px;
+
+                .splide__slide {
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    padding-top: 120px;
+                    padding-bottom: 20px;
+
+                    .intern__card {
+                        width: 100%;
+                        height: auto;
+                        background: white;
+                        width: 472px;
+                        border: 2px solid rgba(196, 196, 196, .25);
+                        box-shadow: 4px 4px 4px 4px rgba(0, 0, 0, .25);
+                        border-radius: 10px;
+                        transition: .2s ease all;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        &:hover {
+                            box-shadow: none;
+                        }
+
+                        .intern__avatar {
+                            width: 200px;
+                            border-radius: 100px;
+                            margin-top: -100px;
+                            margin-bottom: 15px;
+                        }
+
+                        .intern__name {
+                            font-size: 24px;
+                            margin-bottom: 5px;
+                            line-height: 1.35;
+                            font-family: "Manrope";
+                            font-weight: 700;
+                        }
+
+                        .intern__role {
+                            font-size: 18px;
+                            color: rgba(0, 0, 0, .5);
+                            margin-bottom: 25px;
+                        }
+
+                        .intern__feedback__wrapper {
+                            padding: 0 25px 0 25px;
+                            line-height: 1.5;
+                            display: flex;
+                            flex-direction: column;
+
+                            b {
+                                color: black;
+                            }
+
+                            .shown__feedback,
+                            .read__more__feedback {
+                                font-size: 18px;
+                                color: rgba(0, 0, 0, 0.5);
+                            }
+
+                            .read__more__feedback {
+                                display: none;
+                            }
+
+                            .read__more,
+                            .show__less {
+                                color: rgb(23, 124, 217);
+                                font-size: 18px;
+                                cursor: pointer;
+                                margin-bottom: 20px;
+                            }
+
+                            .show__less {
+                                display: none;
+                            }
+                        }
+
+
+                        .intern__feedback__wrapper.active > .read__more {
+                            display: none;
+                        }
+
+                        .intern__feedback__wrapper.active > .show__less {
+                            display: inline;
+                        }
+
+                        .intern__feedback__wrapper.active > .read__more__feedback {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+
+        }
+
+
     }
 
-    .faq-item a {
-        color: rgb(23, 124, 217);
+    @media screen and (max-width: 1024px) {
+
+        .interns__slider__container {
+            width: 100%;
+
+            .splide {
+
+                .splide__track {
+                    width: 85vw;
+
+                    .splide__list {
+
+                        .splide__slide {
+
+                            .intern__card {
+                                width: 90%;
+                                box-shadow: none !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .faq-item:not(:last-child) {
-        margin-bottom: 25px;
+    //TABLET
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+        .faq__container {
+            width: 100%;
+            padding: 0 40px 0 40px;
+
+            .faq__item {
+                width: 100%;
+            }
+
+            .faq__questions__container {
+                .faq__subtitle__container {
+                    .faq__subtitle {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+        
     }
 
-    .faq-answer {
-        line-height: 1.5;
+
+    //MOBILE
+    @media screen and (max-width: 768px) {
+
+
+        .interns__slider__container {
+            .container__title {
+                font-size: 18px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    left: -15px;
+                    bottom: 0;
+                    width: 172px;
+                    height: 20px;
+                    top: 15px;
+                    background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+                    z-index: -1;
+                }
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: 5px;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 13px;
+                    top: 15px;
+                    background-color: #ffd400;
+                    z-index: -1;
+                }
+            }
+        }
+
+        .faq__container {
+            width: 100%;
+            padding: 0 25px 0 25px;
+
+            .container__title {
+                font-size: 18px;
+
+                &::before {
+                    position: absolute;
+                    content: "";
+                    left: -15px;
+                    bottom: 0;
+                    width: 172px;
+                    height: 20px;
+                    top: 15px;
+                    background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big.png);
+                    z-index: -1;
+                }
+        
+                &::after {
+                    position: absolute;
+                    content: "";
+                    left: 5px;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 13px;
+                    top: 15px;
+                    background-color: #ffd400;
+                    z-index: -1;
+                }
+            }
+
+            .faq__item {
+                width: 100%;
+            }
+
+            .faq__questions__container {
+                .faq__subtitle__container {
+
+                    svg {
+                        width: 28px;
+                        height: 28px;
+                    }
+
+                    .faq__subtitle {
+                        font-size: 16px;
+                        max-width: 80%;
+                    }
+                }
+            }
+        }
     }
 
-    .faq-subtitle-container {
-        height: 44px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    //SLIDER
+    @media screen and (max-width: 1024px) and (min-width: 850px) {
+        .interns__slider__container {
+
+            .splide {
+                .splide__arrow--prev {
+                    margin-left: -70px;
+                }
+
+                .splide__arrow--next {
+                    margin-right: -70px;
+                }
+
+                .splide__track {
+
+                    .splide__list {
+
+                        .splide__slide {
+                            width: 50% !important;
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    .faq-subtitle {
-        font-size: 24px;
+    @media screen and (max-width: 850px) {
+
+
+        .splide__slide {
+            width: 100% !important;
+        }
     }
 
-    .faq-subtitle-container > svg {
-        cursor: pointer;
+    @media screen and (max-width: 850px) and (min-width: 600px) {
+        .splide__arrow--prev {
+            margin-left: -45px !important;
+        }
+
+        .splide__arrow--next {
+            margin-right: -45px !important;
+        }
     }
-    .faq-subtitle-container > svg > path, .faq-subtitle{
-        -webkit-transition:.3s ease-in-out;
-        -o-transition:.3s ease-in-out;
-        transition:.3s ease-in-out
+
+    @media screen and (max-width: 600px) {
+        .interns__slider__container {
+            .title__container {
+                margin-bottom: 0px !important;
+            }
+        }
+
+        .intern__card {
+
+            .intern__name, .intern__role {
+                font-size: 14px !important;
+            }
+            .intern__role {
+                margin-bottom: 15px !important;
+            }
+
+            .intern__avatar {
+                width: 140px !important;
+                margin-top: -70px !important;
+            }
+
+            .intern__feedback__wrapper {
+                padding: 0 15px 0 15px !important;
+            }
+        }
+        .splide__arrow--prev {
+            margin-left: -45px !important;
+        
+            transform: scale(.6);
+        }
+
+        .splide__arrow--next {
+            margin-right: -45px !important;
+            transform: scale(.6);
+            
+        }
     }
-    .faq-item:hover .faq-subtitle-container > svg > path, .faq-item.active .faq-subtitle-container > svg > path  {
-        stroke: rgb(23, 124, 217);
+
+    @media screen and (min-width: 370px) and (max-width: 600px) {
+        .shown__feedback, .read__more__feedback, .read__more, .show__less {
+            font-size: 14px !important;
+        }
+
     }
-    .faq-item:hover .faq-subtitle, .faq-item.active .faq-subtitle {
-        color: rgb(23, 124, 217);
-    }
+
+    @media screen and (max-width: 370px) {
+
+        .faq__container {
+            width: 100% !important;
+            padding: 0 20px 0 20px !important;
     
+            .title__container {
+                margin-bottom: 60px !important;
+                .container__title {
+                    font-size: 18px !important;
+                    line-height: 1.7;
+                }
+    
+                .container__title::before {
+                    left: -15px !important;
+                    width: 172px !important;
+                    height: 20px !important;
+                    top: 15px !important;
+                }
+        
+                .container__title::after {
+                    left: 5px !important;
+                    width: 100% !important;
+                    height: 13px !important;
+                    top: 15px !important;
+                }
+            }
+    
+    
+    
+            .faq__item {
+                width: 100% !important;
+                padding: 15px 20px 15px 20px !important;
+            }
+    
+            .faq__questions__container {
+                .faq__subtitle__container {
+    
+                    svg {
+                        width: 28px !important;
+                        height: 28px !important;
+                    }
+    
+                    .faq__subtitle {
+                        font-size: 14px !important;
+                        max-width: 75% !important;
+                    }
+                }
+            }
+        }
 
-    .faq-item.active .plus {
-        opacity: 0;
-    }
-    .faq-answer{
-        transition: .3s ease-in-out;
-        max-height: 0;
-        padding: 0;
-        overflow: hidden;
-        font-size: 18px;
-        padding-right: 60px;
+        .intern__card {
+
+            .shown__feedback, .read__more__feedback, .read__more, .show__less {
+                font-size: 12px !important;
+            }
+        }
+
+        .splide__arrow--prev {
+            margin-left: -40px !important;
+        
+        }
+
+        .splide__arrow--next {
+            margin-right: -40px !important;
+            
+        }
     }
 
-    .faq-item.active .faq-answer{
-        max-height: 300px;
-        padding-bottom: 25px;
-        padding-top: 15px;
-    }
-
-    .faq-answer-list-item {
-        margin-left: 25px;
-    }
-    .numeric-list {
-        list-style-type: armenian;
-    }
-    .faq-answer-list-item:not(:last-child) {
-        margin-bottom: 5px;
-    }
-    .faq-answer-list {
-        max-width: 700px;
-    }
-    .reasons_to_join {
-        margin-top: 10px;
-    }
 
 }
