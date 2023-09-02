@@ -2,10 +2,341 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: monospace, monospace;
+  font-family: "Raleway";
 }
 
 .container {
   width: 100%;
   height: auto;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .faq__container {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+  margin-bottom: 130px;
+}
+.container .title__container {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 75px;
+}
+.container .title__container .container__title {
+  text-align: center;
+}
+.container .title__container > .container__title {
+  font-family: "Manrope";
+  font-size: 36px;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+}
+.container .title__container > .container__title::before {
+  position: absolute;
+  content: "";
+  left: -40px;
+  bottom: 0;
+  width: 172px;
+  height: 30px;
+  top: 30px;
+  background-image: url(https://nobelnavigators.com/wp-content/themes/courselog/assets/images/icons/text-decoration-big-uk.png);
+  z-index: -1;
+}
+.container .title__container > .container__title::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 15px;
+  top: 30px;
+  background-color: #ffd400;
+  z-index: -1;
+}
+.container .faq__questions__container {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .faq__questions__container .faq__item {
+  height: auto;
+  width: 850px;
+  border: 1px solid #b8b8b8;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 25px 10px 25px;
+}
+.container .faq__questions__container .faq__item a {
+  color: rgb(23, 124, 217);
+}
+.container .faq__questions__container .faq__item:not(:last-child) {
+  margin-bottom: 25px;
+}
+.container .faq__questions__container .faq__item .faq__answer {
+  line-height: 1.5;
+}
+.container .faq__questions__container .faq__item .faq__subtitle__container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .faq__questions__container .faq__item .faq__subtitle__container .faq__subtitle {
+  font-size: 24px;
+}
+.container .faq__questions__container .faq__item .faq__subtitle__container svg > path,
+.container .faq__questions__container .faq__item .faq__subtitle__container .faq__subtitle {
+  transition: 0.3s ease-in-out;
+}
+.container .faq__questions__container .faq__item:hover .faq__subtitle__container > svg > path, .container .faq__questions__container .faq__item.active .faq__subtitle__container > svg > path {
+  stroke: rgb(23, 124, 217);
+}
+.container .faq__questions__container .faq__item:hover .faq__subtitle, .container .faq__questions__container .faq__item.active .faq__subtitle {
+  color: rgb(23, 124, 217);
+}
+.container .faq__questions__container .faq__item.active .plus {
+  opacity: 0;
+}
+.container .faq__questions__container .faq__item .faq__answer {
+  transition: 0.3s ease-in-out;
+  max-height: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 18px;
+  padding-right: 60px;
+}
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list {
+  max-width: 700px;
+}
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list .faq__answer__list__item {
+  margin-left: 25px;
+}
+.container .faq__questions__container .faq__item .faq__answer .faq__answer__list .faq__answer__list__item:not(:last-child) {
+  margin-bottom: 5px;
+}
+.container .faq__questions__container .faq__item .faq__answer .reasons__to__join {
+  margin-top: 10px;
+  list-style-type: numeric;
+  margin-left: 25px;
+}
+.container .faq__questions__container .faq__item .faq__answer .reasons__to__join > li {
+  margin-bottom: 7px;
+}
+.container .faq__questions__container .faq__item.active .faq__answer {
+  max-height: 1000px;
+  padding-bottom: 25px;
+  padding-top: 15px;
+}
+.container .nobel__reach__container {
+  max-width: 1260px;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60px 0 60px;
+}
+.container .nobel__reach__container .title__container {
+  width: 100%;
+}
+.container .nobel__reach__container .title__container .container__title {
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+}
+.container .nobel__reach__container .title__container .container__title::before {
+  left: -80px;
+}
+.container .nobel__reach__container .title__container .container__title::after {
+  left: -40px;
+  top: 30px;
+  width: 670px;
+}
+.container .nobel__reach__container .nobel__reach__info {
+  text-align: center;
+  line-height: 1.5;
+  font-size: 18px;
+  margin-bottom: 40px;
+  max-width: 1020px;
+}
+.container .nobel__reach__container .learn__more__nobel__reach {
+  width: 215px;
+  height: 60px;
+  color: white;
+  border: 2px solid #2A59F1;
+  outline: none;
+  border-radius: 100px;
+  background: #2A59F1;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease all;
+}
+.container .nobel__reach__container .learn__more__nobel__reach a {
+  text-decoration: none;
+  color: white;
+  transition: 0.4s ease all;
+}
+.container .nobel__reach__container .learn__more__nobel__reach:hover {
+  background: white;
+  box-shadow: 0px 10px 13px -7px #2A59F1, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+.container .nobel__reach__container .learn__more__nobel__reach:hover > a {
+  color: #2A59F1;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .faq__container {
+    width: 100% !important;
+    padding: 0 40px 0 40px !important;
+    margin-bottom: 230px !important;
+  }
+  .faq__container .faq__item {
+    width: 100% !important;
+  }
+  .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 20px !important;
+  }
+  .nobel__reach__container .title__container .container__title {
+    font-size: 32px;
+  }
+  .nobel__reach__container .title__container .container__title::after {
+    width: 610px !important;
+  }
+}
+@media screen and (min-width: 350px) and (max-width: 700px) {
+  .faq__container {
+    width: 100% !important;
+    padding: 0 25px 0 25px !important;
+  }
+  .faq__container .title__container .container__title {
+    font-size: 18px !important;
+  }
+  .faq__container .title__container .container__title::before {
+    left: -15px !important;
+    width: 172px !important;
+    height: 20px !important;
+    top: 15px !important;
+  }
+  .faq__container .title__container .container__title::after {
+    left: 5px !important;
+    width: 100% !important;
+    height: 13px !important;
+    top: 15px !important;
+  }
+  .faq__container .faq__item {
+    width: 100% !important;
+  }
+  .faq__container .faq__questions__container .faq__subtitle__container svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 16px !important;
+    max-width: 80% !important;
+  }
+  .nobel__reach__container {
+    padding: 0 25px 0 25px !important;
+  }
+  .nobel__reach__container .title__container {
+    margin-bottom: 30px !important;
+  }
+  .nobel__reach__container .title__container .container__title {
+    width: 100% !important;
+    font-size: 18px !important;
+    max-width: 100% !important;
+    line-height: 1.7 !important;
+  }
+  .nobel__reach__container .title__container .container__title::after {
+    top: 18px !important;
+    width: 95% !important;
+    left: 5px !important;
+    height: 11px !important;
+  }
+  .nobel__reach__container .title__container .container__title::before {
+    left: -15px !important;
+    height: 18px !important;
+    top: 20px !important;
+  }
+}
+@media screen and (max-width: 350px) {
+  .faq__container {
+    width: 100% !important;
+    padding: 0 20px 0 20px !important;
+  }
+  .faq__container .title__container {
+    margin-bottom: 60px !important;
+  }
+  .faq__container .title__container .container__title {
+    font-size: 18px !important;
+    line-height: 1.7;
+  }
+  .faq__container .title__container .container__title::before {
+    left: -15px !important;
+    width: 172px !important;
+    height: 20px !important;
+    top: 15px !important;
+  }
+  .faq__container .title__container .container__title::after {
+    left: 5px !important;
+    width: 100% !important;
+    height: 13px !important;
+    top: 15px !important;
+  }
+  .faq__container .faq__item {
+    width: 100% !important;
+    padding: 15px 20px 15px 20px !important;
+  }
+  .faq__container .faq__questions__container .faq__subtitle__container svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .faq__container .faq__questions__container .faq__subtitle__container .faq__subtitle {
+    font-size: 14px !important;
+    max-width: 75% !important;
+  }
+  .nobel__reach__container {
+    padding: 0 25px 0 25px !important;
+  }
+  .nobel__reach__container .title__container {
+    margin-bottom: 30px !important;
+  }
+  .nobel__reach__container .title__container .container__title {
+    width: 100% !important;
+    font-size: 18px !important;
+    max-width: 100% !important;
+    line-height: 1.7 !important;
+  }
+  .nobel__reach__container .title__container .container__title::after {
+    top: 18px !important;
+    width: 95% !important;
+    left: 5px !important;
+    height: 11px !important;
+  }
+  .nobel__reach__container .title__container .container__title::before {
+    left: -15px !important;
+    height: 18px !important;
+    top: 20px !important;
+  }
 }/*# sourceMappingURL=page-nobel-for-ukraine-edit.css.map */
